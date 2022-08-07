@@ -239,6 +239,7 @@ Call.prototype.connectToRoom_ = function(roomId) {
   // TODO(jiayl): We don't need to wait for the signaling channel to open before
   // start signaling.
   var channelPromise = this.channel_.open().catch(function(error) {
+    trase('open error: ' + error);
     console.log('open error: ' + error);
     this.onError_('WebSocket open error: ' + error.message);
     return Promise.reject(error);
@@ -278,6 +279,7 @@ Call.prototype.connectToRoom_ = function(roomId) {
           this.onError_('Failed to start signaling: ' + error.message);
         }.bind(this));
   }.bind(this)).catch(function(error) {
+     trace('register error: ' + error);
      console.log('register error: ' + error);
     this.onError_('WebSocket register error: ' + error.message);
   }.bind(this));
