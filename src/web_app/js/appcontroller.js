@@ -52,6 +52,7 @@ var UI_CONSTANTS = {
 
 // The controller that connects the Call with the UI.
 var AppController = function(loadingParams) {
+  console.log('testing logs');
   trace('Initializing; server= ' + loadingParams.roomServer + '.');
   trace('Initializing; room=' + loadingParams.roomId + '.');
 
