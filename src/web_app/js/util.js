@@ -203,6 +203,7 @@ function calculateFps(videoElement, decodedFrames, startTime, remoteOrLocal,
 }
 
 function trace(text) {
+   console.log("using trace")
   // This function is used for logging.
   if (text[text.length - 1] === '\n') {
     text = text.substring(0, text.length - 1);
