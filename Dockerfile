@@ -4,7 +4,6 @@ FROM golang:1.17.5-alpine3.15
 
 # Install and download deps.
 RUN apk add --no-cache git curl python2 build-base openssl-dev openssl 
-#RUN git clone https://github.com/webrtc/apprtc.git
 RUN git clone https://github.com/PiotrMuciek/apprtc.git
 
 # AppRTC GAE setup
@@ -19,6 +18,9 @@ RUN curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud
 RUN python apprtc/build/build_app_engine_package.py apprtc/src/ apprtc/out/ \
     && curl https://webrtc.github.io/adapter/adapter-latest.js --output apprtc/src/web_app/js/adapter.js \
     && cp apprtc/src/web_app/js/*.js apprtc/out/js/
+
+ # TODO: Add log for ls -l
+RUN ls -l -a -R apprtc/out
 
 # Wrap AppRTC GAE app in a bash script due to needing to run two apps within one container.
 RUN echo -e "#!/bin/sh\n" > /go/start.sh \
