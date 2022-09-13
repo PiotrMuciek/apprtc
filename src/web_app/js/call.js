@@ -240,7 +240,7 @@ Call.prototype.connectToRoom_ = function(roomId) {
   // start signaling.
   var channelPromise = this.channel_.open().catch(function(error) {
     trace('open error: ' + error);
-    console.log('open error: ' + error);
+    console.log('open error: ' + error.toString());
     this.onError_('WebSocket open error: ' + error.message);
     return Promise.reject(error);
   }.bind(this));
@@ -280,7 +280,7 @@ Call.prototype.connectToRoom_ = function(roomId) {
         }.bind(this));
   }.bind(this)).catch(function(error) {
      trace('register error: ' + error);
-     console.log('register error: ' + error);
+     console.log('register error: ' + error.toString());
     this.onError_('WebSocket register error: ' + error.message);
   }.bind(this));
 };
