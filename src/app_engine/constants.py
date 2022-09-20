@@ -27,7 +27,9 @@ ICE_SERVER_OVERRIDE = [
      "urls": [
        "turn:146.59.19.226:3478?transport=udp",
        "turn:146.59.19.226:3478?transport=tcp"
-     ]
+     ],
+     "username": "test",
+     "credential": "test123"
    },
    {
      "urls": [
