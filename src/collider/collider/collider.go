@@ -48,10 +48,7 @@ func (c *Collider) Run(p int, useTls bool) {
 	var e error
 
 	pstr := ":" + strconv.Itoa(p)
-
-	var testTls = false
-
-	if testTls {
+	if useTls {
 		config := &tls.Config {
 			// Only allow ciphers that support forward secrecy for iOS9 compatibility:
 			// https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/
